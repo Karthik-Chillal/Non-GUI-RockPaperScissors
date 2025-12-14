@@ -22,5 +22,13 @@ function getHumanChoice(){
   userChoice=userChoice.toLowerCase();
   return userChoice;
 }
+function Display(){
+  console.log(message);
+  console.log(winloss);
+}
 let userChoice=getHumanChoice();
 let compChoice = getComputerChoice().toLowerCase();
+let message= `You chose ${userChoice}. The Computer Chose ${compChoice}.`;
+let winloss= compChoice===userChoice? `You Win!` : `You Lose`;
+Display();
+
