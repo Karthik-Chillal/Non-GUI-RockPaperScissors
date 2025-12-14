@@ -36,7 +36,7 @@ function getHumanChoice(){
 }
 function winloss(user, comp){
   if(user===comp){
-    return `Draw`;
+    return `Its a Draw`;
   }
   else if(
     (user===`rock` && comp ===`scissors`)
@@ -46,10 +46,18 @@ function winloss(user, comp){
     return `You Win!`;
   }
   else{
-    return `You Lose!`
+    return `You Lose, Computer Wins!`
   }
 }
-let userChoice=getHumanChoice();
-let compChoice = getComputerChoice().toLowerCase();
-console.log(`You chose ${userChoice.toUpperCase()}.`);
-console.log(`The Computer Chose ${compChoice.toUpperCase()}.`)
+let score=0;
+for(let i=0; i<5; i++){
+  let userChoice=getHumanChoice();
+  let compChoice = getComputerChoice().toLowerCase();
+  console.log(`You chose ${userChoice.toUpperCase()}.`);
+  console.log(`The Computer Chose ${compChoice.toUpperCase()}.`);
+  result=winloss(userChoice, compChoice);
+  console.log(result);
+  score+=(result===`You Win!`?1:0);
+  console.log(`Score::::${score}`);
+  console.log(``);
+}
