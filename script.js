@@ -34,13 +34,22 @@ function getHumanChoice(){
     alert("Wrong choice! Enter rock, paper, or scissors.");
   }
 }
-function Display(){
-  console.log(message);
-  console.log(winloss);
+function winloss(user, comp){
+  if(user===comp){
+    return `Draw`;
+  }
+  else if(
+    (user===`rock` && comp ===`scissors`)
+    || (user===`paper` && comp === `rock`)
+    || (user===`scissors` && comp===`paper`)
+  ){
+    return `You Win!`;
+  }
+  else{
+    return `You Lose!`
+  }
 }
 let userChoice=getHumanChoice();
 let compChoice = getComputerChoice().toLowerCase();
-let message= `You chose ${userChoice.toUpperCase()}. The Computer Chose ${compChoice.toUpperCase()}.`;
-let winloss= compChoice===userChoice? `You Win!` : `You Lose`;
-Display();
-
+console.log(`You chose ${userChoice.toUpperCase()}.`);
+console.log(`The Computer Chose ${compChoice.toUpperCase()}.`)
