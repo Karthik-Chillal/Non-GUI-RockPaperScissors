@@ -18,9 +18,21 @@ function getRandomInteger(max){
   return Math.floor(Math.random()*max);
 }
 function getHumanChoice(){
-  let userChoice=prompt(`Enter Choice`)
-  userChoice=userChoice.toLowerCase();
-  return userChoice;
+    while (true) {
+    let input = prompt("Enter choice: rock, paper, or scissors");
+
+    if (input === null) {
+      return null;
+    }
+    input=input.toLowerCase().trim();
+    if(input===`rock`
+      || input===`paper`
+      || input===`scissors`
+    ){
+      return input;
+    }
+    alert("Wrong choice! Enter rock, paper, or scissors.");
+  }
 }
 function Display(){
   console.log(message);
@@ -28,7 +40,7 @@ function Display(){
 }
 let userChoice=getHumanChoice();
 let compChoice = getComputerChoice().toLowerCase();
-let message= `You chose ${userChoice}. The Computer Chose ${compChoice}.`;
+let message= `You chose ${userChoice.toUpperCase()}. The Computer Chose ${compChoice.toUpperCase()}.`;
 let winloss= compChoice===userChoice? `You Win!` : `You Lose`;
 Display();
 
