@@ -17,3 +17,10 @@ function getComputerChoice(){
 function getRandomInteger(max){
   return Math.floor(Math.random()*max);
 }
+function getHumanChoice(){
+  let userChoice=prompt(`Enter Choice`)
+  userChoice=userChoice.toLowerCase();
+  return userChoice;
+}
+let userChoice=getHumanChoice();
+let compChoice = getComputerChoice().toLowerCase();
