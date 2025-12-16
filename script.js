@@ -51,11 +51,13 @@ function playRound(user, comp){
 }
 let score=0;
 let total=0;
+const win=document.createElement("h1");
 const btn=document.querySelectorAll(".btn");
 const result=document.createElement("h1");
 document.querySelector(".res").appendChild(result);
 const points=document.createElement("h2");
 document.querySelector(".res").appendChild(points);
+document.querySelector(".res").appendChild(win);
 let userChoice="";
 let compChoice="";
 btn.forEach((button)=>{
@@ -68,12 +70,23 @@ btn.forEach((button)=>{
       score++;
     }
     points.textContent=`Score: ${score}/${total}`;
+    if(score===5 && total-score<5){
+      win.textContent=`Player Wins with score: ${score}:${total-score}`;
+      result.textContent=``;
+      points.textContent=``;
+    }
+    else if(score<5 && total-score==5){
+      win.textContent=`Computer Wins. `
+      result.textContent=``;
+      points.textContent=``;
+    }
   });
 });
 reset=document.querySelector(".reset");
 reset.addEventListener("click", ()=>{
   result.textContent=``;
   points.textContent=``;
+  win.textContent=``;
   score=0;
   total=0;
 });
