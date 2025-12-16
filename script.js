@@ -74,4 +74,6 @@ reset=document.querySelector(".reset");
 reset.addEventListener("click", ()=>{
   result.textContent=``;
   points.textContent=``;
-})
+  score=0;
+  total=0;
+});

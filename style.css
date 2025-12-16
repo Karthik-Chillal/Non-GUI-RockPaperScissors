@@ -46,11 +46,13 @@ body{
   border-radius: 50%;
   margin: 20px;
   font-size: 50px;
+  border: none;
 }
 .btns{
   display: flex;
   justify-content: center;
   margin: 20px;
+
 }
 .res{
   display: flex;
@@ -65,4 +67,9 @@ body{
   border-radius: 5px;
   font-size: 26px;
   color: rgb(44, 44, 44);
+  border: none;
+}
+.reset:hover{
+  background-color: rgb(130, 130, 130);
+  color: white;
 }
