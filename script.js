@@ -50,9 +50,12 @@ function playRound(user, comp){
   }
 }
 let score=0;
+let total=0;
 const btn=document.querySelectorAll(".btn");
 const result=document.createElement("h1");
 document.querySelector(".res").appendChild(result);
+const points=document.createElement("h2");
+document.querySelector(".res").appendChild(points);
 let userChoice="";
 let compChoice="";
 btn.forEach((button)=>{
@@ -60,5 +63,15 @@ btn.forEach((button)=>{
     userChoice=e.target.id;
     compChoice=getComputerChoice().toLowerCase();
     result.textContent=playRound(userChoice, compChoice).toUpperCase();
+    total++;
+    if(result.textContent==`YOU WIN!`){
+      score++;
+    }
+    points.textContent=`Score: ${score}/${total}`;
   });
 });
+reset=document.querySelector(".reset");
+reset.addEventListener("click", ()=>{
+  result.textContent=``;
+  points.textContent=``;
+})
