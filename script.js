@@ -34,7 +34,7 @@ function getHumanChoice(){
     alert("Wrong choice! Enter rock, paper, or scissors.");
   }
 }
-function winloss(user, comp){
+function playRound(user, comp){
   if(user===comp){
     return `Its a Draw`;
   }
@@ -50,14 +50,15 @@ function winloss(user, comp){
   }
 }
 let score=0;
-for(let i=0; i<5; i++){
-  let userChoice=getHumanChoice();
-  let compChoice = getComputerChoice().toLowerCase();
-  console.log(`You chose ${userChoice.toUpperCase()}.`);
-  console.log(`The Computer Chose ${compChoice.toUpperCase()}.`);
-  result=winloss(userChoice, compChoice);
-  console.log(result);
-  score+=(result===`You Win!`?1:0);
-  console.log(`Score::::${score}`);
-  console.log(``);
-}
+const btn=document.querySelectorAll(".btn");
+const result=document.createElement("h1");
+document.querySelector(".res").appendChild(result);
+let userChoice="";
+let compChoice="";
+btn.forEach((button)=>{
+  button.addEventListener("click", (e)=>{
+    userChoice=e.target.id;
+    compChoice=getComputerChoice().toLowerCase();
+    result.textContent=playRound(userChoice, compChoice).toUpperCase();
+  });
+});
